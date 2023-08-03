@@ -5,6 +5,8 @@
     <title></title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
 
@@ -168,10 +170,12 @@
 
         }
 
-        .header{
+        .header {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            align-items: center;
+            vertical-align: center;
             row-gap: 200px;
         }
         .material-icons{
@@ -219,6 +223,46 @@
             cursor: pointer;
             border: solid;
         }
+        .middle-class{
+            display: flex;
+            flex-direction: row;
+            flex-shrink: 0;
+
+            border-radius: 10px;
+            border:thin solid;
+            width: 400px;
+            top: 3%;
+            left: 50%;
+            height: 40px;
+
+            position: absolute;
+        }
+        .search_input{
+            font-size: 18px;
+            font-weight: 450;
+            position: absolute;
+            width: 350px;
+            height: 100%;
+            display: flex;
+            border: none;
+            background: transparent;
+            outline: none;
+
+        }
+        .search{
+            right: 10px;
+            position: absolute;
+
+            margin-top: 5px;
+            font-size: 28px;
+            font-weight: lighter;
+        }
+        .search-div{
+            right: 10px;
+            position: absolute;
+
+
+        }
     </style>
 </head>
 <body>
@@ -262,14 +306,19 @@
 
 
     </div>
-
+    <div class="middle-class">
+        <input class="search_input" id="search_input">
+        <div class="search-div">
+        <i class="glyphicon glyphicon-search search"></i>
+         </div>
+    </div>
     <div class="right_header">
         <i class="fa fa-whatsapp"></i>
         <i class="material-icons">facebook</i>
         <i class="material-icons rr">tiktok</i>
 
 
-    </div>
+    </div></div>
 </div>
 <h2>Get Our Free Courses </h2>
 <div class="new-body">
