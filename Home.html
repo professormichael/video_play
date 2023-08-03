@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title id="ta"></title>
+</head>
+<body >
+
+
+<script>
+    function op() {
+        var storedValues = localStorage.getItem('y');
+        var inputValues = JSON.parse(storedValues);
+        var outpuList = JSON.parse(storedValues);
+        var listItem = document.getElementById('body1');
+        var title2 = document.getElementById('ta');
+
+        title2.innerHTML = "Home(" +inputValues + ")";
+
+    }
+    op()
+</script>
+</body>
+</html>

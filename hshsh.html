@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <style>
+    .inner-div{
+      font-size: 40px;
+    }
+  </style>
+</head>
+<body>
+<div id="container"></div>
+<button id="addButton">Add Inner Div</button>
+<script>
+  const container = document.getElementById("container");
+const addButton = document.getElementById("addButton");
+let divCounter = 0;
+
+addButton.addEventListener("click", function() {
+  divCounter++;
+  const innerDiv = document.createElement("div");
+  innerDiv.classList.add("inner-div");
+  innerDiv.textContent = "This is div #" + divCounter;
+  container.appendChild(innerDiv);
+
+});
+
+</script>
+
+
+</body>
+</html>
