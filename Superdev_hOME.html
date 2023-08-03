@@ -120,6 +120,7 @@
             position: relative;
         }
         h1{
+
             position: absolute;
             left: 1%;
 
@@ -200,11 +201,8 @@
         }
         .new-body{
             margin-top: 50px;
-            width: 620px;
-            display: grid;
-            grid-template-columns: 300px 300px  1fr;
-            column-gap: 10px;
-            row-gap: 20px;
+
+
         }
         .img2{
 
@@ -244,12 +242,11 @@
             font-size: 18px;
             font-weight: 400;
             position: absolute;
-
-
-            flex: 1;
+            display: flex;
+            width: 350px;
 
             height: 100%;
-            display: flex;
+
             border: none;
             background: transparent;
             outline: none;
@@ -271,9 +268,25 @@
             position: absolute;
             display: flex;
             flex-shrink: 1;
-
-
         }
+        .class1,.class2,.class3,.class4{
+             margin-top: 50px;
+            width: 620px;
+            display: grid;
+            grid-template-columns: 300px 300px  1fr;
+            column-gap: 10px;
+            row-gap: 20px;
+        }
+        .search-result{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            row-gap: 20px;
+            column-gap: 20px;
+        }
+        h2{
+            margin-top: 150px;
+        }
+
     </style>
 </head>
 <body>
@@ -320,7 +333,7 @@
     <div class="middle-class">
         <input class="search_input" id="search_input">
         <div class="search-div">
-        <i class="glyphicon glyphicon-search search"></i>
+        <i class="glyphicon glyphicon-search search" onclick="search()"></i>
          </div>
     </div>
     <div class="right_header">
@@ -331,32 +344,46 @@
 
     </div></div>
 </div>
+
+<p id="paragraph" class="paragraph"></p>
+<div class="search-result" id="search-result">
+
+
+</div>
 <h2>Get Our Free Courses </h2>
 <div class="new-body">
+    <div class="class1" id="ex1">
     <img src="pics1.webp" class="img2">
-    <p class="video_title">
+    <p class="video_title" id="pz">
         JavaScript Tutorial for Beginners: Learn JavaScript in 1 Hour
 
     </p>
     <button onclick="first_video()">Watch</button>
+    </div>
+    <div class="class2" id="ex2">
     <img src="hq720.webp" class="img2">
-    <p class="video_title">
+    <p class="video_title" id="py">
         JavaScript Full Course (2023) - Beginner to Pro - Part 1
 
     </p>
     <button onclick="first_video2()" >Watch</button>
+    </div>
+    <div class="class3" id="ex3">
     <img src="pics3.webp" class="img2">
-    <p class="video_title">
+    <p class="video_title" id="px">
         Learn JavaScript - Full Course for Beginners
 
     </p>
     <button onclick="first_video3()">Watch</button>
+    </div>
+    <div class="class4" id="ex4" >
     <img src="hq720%20(1).webp" class="img2">
-    <p class="video_title">
+    <p class="video_title" id="pw">
        Learn JavaScript With This ONE Project!
 
     </p>
     <button onclick="first_video4()">Watch</button>
+    </div>
 
 </div>
 </body>
@@ -406,5 +433,70 @@
 
 
       }
+      function search(){
+          let search_divss = document.getElementById('search-result')
+          let searc = document.getElementById('search_input').value;
+          let p_namez = document.getElementById('pz')
+          let p_namey = document.getElementById('py')
+          let p_namex = document.getElementById('px')
+          let p_namew = document.getElementById('pw')
+          let ex1 = document.getElementById('ex1')
+          let ex2 = document.getElementById('ex2')
+          let ex3 = document.getElementById('ex3')
+          let ex4 = document.getElementById('ex4')
+          let paragraph = document.getElementById('paragraph');
+
+          let result =""
+          const container = document.getElementById("search-result");
+
+
+
+          if(p_namez.innerText.includes(searc)){
+               const innerDiv = document.createElement("div");
+                innerDiv.classList.add("inner-div");
+                innerDiv.innerHTML = ex1.innerHTML;
+                container.appendChild(innerDiv);
+          }
+          if(p_namey.innerText.includes(searc)){
+                const innerDiv = document.createElement("div");
+                innerDiv.classList.add("inner-div");
+                innerDiv.innerHTML = ex2.innerHTML;
+                container.appendChild(innerDiv);
+
+          }
+          if(p_namex.innerText.includes(searc)){
+               const innerDiv = document.createElement("div");
+                innerDiv.classList.add("inner-div");
+                innerDiv.innerHTML = ex3.innerHTML;
+                container.appendChild(innerDiv);
+
+          }
+          if(p_namew.innerText.includes(searc)){
+
+               const innerDiv = document.createElement("div");
+                innerDiv.classList.add("inner-div");
+                innerDiv.innerHTML = ex4.innerHTML;
+                container.appendChild(innerDiv);
+
+
+          }
+          if(document.getElementById('search_input').value===""){
+             container.innerHTML = ""
+          }
+          if(document.getElementById('search_input').value===""){
+             paragraph.innerHTML = ""
+          }
+
+           paragraph.innerText ="Search Result:";
+           document.getElementById('search_input').value= "";
+
+
+
+      }
+
+
+
+         // console.log(divs.innerHTML)
+
 </script>
 </html>
