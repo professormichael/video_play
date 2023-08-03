@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+
+    #example-element {
+
+      width: 60px;
+      height: 100px;
+      margin-top: 100px;
+      margin-bottom: 100px;
+      margin-left: 290px;
+      transform-style: preserve-3d ;
+      transition: transform 1.5s;
+      transform: rotate3d(1, 1, 1, 0deg);
+      display: inline-block;
+      /*margin: 250px auto;*/
+      animation-name: sidein;
+      animation-delay: -0.15s;
+      animation-iteration-count: infinite;
+      animation-duration: 20s;
+        position:absolute;
+        left: 0;
+        top: 40px;
+      z-index: 100;
+
+    }
+
+@keyframes sidein {
+  from{
+    transform: rotate3d(0, 0, 0, 0deg) rotate(0deg);
+  ;
+  }
+  to{
+    transform: rotate3d(1,1,1,360deg) rotate(360deg);
+  }
+
+
+}
+@keyframes slidein3 {
+  0%{
+    transform: translateX( 0px);
+  }
+  25%{
+    transform: translateX(500px);
+  }
+  75%{
+    transform: translateY(0px);
+
+  }
+  100%{
+    transform: translateY(60px);
+  }
+}
+.face {
+    position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(10,10,10,10);
+  width: 100%;
+  height: 100%;
+
+
+  backface-visibility: inherit;
+  font-size: 60px;
+  color: #fff;
+}
+
+.front {
+  background: rgba(90, 90, 90, 0.7);
+  transform: translateZ(100px);
+}
+
+.back {
+  background: rgba(0, 210, 0, 0.7);
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+  background: rgba(210, 0, 0, 0.7);
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+  background: rgba(0, 0, 210, 0.7);
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+  background: rgba(210, 210, 0, 0.7);
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+  background: rgba(210, 0, 210, 0.7);
+  transform: rotateX(-90deg) translateZ(100px);
+}
+        .first-div{
+
+
+        }
+        .first-img{
+            width: 100%;
+            height: 600px;
+            position: relative;
+        }
+        h1{
+            position: absolute;
+            left: 50px;
+            top: 400px;
+        }
+        .second-img{
+            width: 50px;
+            height: 40px;
+            position: absolute;
+            left: 0;
+            top: 30px;
+            cursor: pointer;
+        }
+        a{
+            position: absolute;
+            text-decoration: none;
+            top: 5px;
+            cursor: pointer;
+            font-size: 20px;font-family: Arial, sans-serif;font-weight: bold ;
+
+
+        }
+        .a1{
+            left: 200px;
+        }
+        .a2{
+            left: 300px;
+        }
+        .a3{
+            left: 400px;
+        }
+        .a4{
+            left: 500px;
+        }
+        .fa-whatsapp{
+            color: green;
+            position: absolute;
+            top: 20px;
+            right: 70px;
+            font-size: 50px;
+
+        }
+
+        .header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            row-gap: 200px;
+        }
+        .material-icons{
+            color: blue;
+            position: absolute;
+            top: 20px;
+            right: 145px;
+            font-size: 50px;
+
+        }
+        i{
+            cursor: pointer;
+        }
+        .rr{
+            right: 220px;
+            color: black;
+        }
+        .new-body{
+            margin-top: 50px;
+            width: 620px;
+            display: grid;
+            grid-template-columns: 300px 300px  1fr;
+            column-gap: 10px;
+            row-gap: 20px;
+        }
+        .img2{
+
+            width: 300px;
+        }
+        .video_title{
+            margin-top: 0;
+            font-size: 24px;
+            font-weight: 700;
+            font-family: Arial, sans-serif;
+        }
+        button{
+            height: 50px;
+            width: 100px;
+            font-weight: bold;
+            font-size: 24px;
+            cursor: pointer;
+            border: solid;
+        }
+    </style>
+</head>
+<body>
+<div class="first-div">
+    <img src="JS.png" class="first-img">
+    <section id="example-element" tabindex="0">
+        <div class="face front">JS</div>
+        <div class="face back">JS</div>
+        <div class="face right">JS</div>
+        <div class="face left">JS</div>
+        <div class="face top">JS</div>
+        <div class="face bottom">JS</div>
+        <div class="face bottom">JS</div>
+        <div class="face bottom">JS</div>
+</section>
+
+    <h1>Welcome To SuperDev Forum </h1>
+</div>
+<div class="header">
+    <div class="left_header">
+        <img class="second-img" src="hamburger-menu.svg" >
+        <a class="a1">
+            <p>
+                Home
+            </p>
+        </a>
+        <a class="a2">
+            <p>
+                About
+            </p>
+        </a>
+        <a class="a3">
+            <p>
+                Courses
+            </p>
+        </a >
+        <a class="a4">
+            <p>
+                Contact Us
+            </p>
+        </a>
+
+
+    </div>
+
+    <div class="right_header">
+        <i class="fa fa-whatsapp"></i>
+        <i class="material-icons">facebook</i>
+        <i class="material-icons rr">tiktok</i>
+
+
+    </div>
+</div>
+<h2>Get Our Free Courses </h2>
+<div class="new-body">
+    <img src="pics1.webp" class="img2">
+    <p class="video_title">
+        JavaScript Tutorial for Beginners: Learn JavaScript in 1 Hour
+
+    </p>
+    <button onclick="first_video()">Watch</button>
+    <img src="hq720.webp" class="img2">
+    <p class="video_title">
+        JavaScript Full Course (2023) - Beginner to Pro - Part 1
+
+    </p>
+    <button onclick="first_video2()" >Watch</button>
+    <img src="pics3.webp" class="img2">
+    <p class="video_title">
+        Learn JavaScript - Full Course for Beginners
+
+    </p>
+    <button onclick="first_video3()">Watch</button>
+    <img src="hq720%20(1).webp" class="img2">
+    <p class="video_title">
+       Learn JavaScript With This ONE Project!
+
+    </p>
+    <button onclick="first_video4()">Watch</button>
+
+</div>
+</body>
+<script>
+      let title= (localStorage.getItem('titlename'))
+      document.title = JSON.parse(title)
+      function first_video(){
+          const video = '<iframe width="560" height="315" src="https://www.youtube.com/embed/W6NZfCO5SIk" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>';
+          localStorage.setItem('video1', JSON.stringify(video));
+          window.location.href='video.html';
+          localStorage.setItem('name', JSON.stringify('JavaScript Tutorial for Beginners: Learn JavaScript in 1 Hour'))
+          localStorage.setItem('description', JSON.stringify( '<h3>10,677,368 views</h3>' + '<br/>'+' <h4>Apr 24, 2018 </h4>' +'<br/>'+'Back-end Development\n' +
+              'Watch this JavaScript tutorial for beginners to learn JavaScript basics in one hour. \n' +
+              '🔥 Want to master JavaScript? Get my complete JavaScript course: <a target="_blank" href="https://bit.ly/3Uod3vF">https://bit.ly/3Uod3vF</a>\n' +
+              '👍 Subscribe for more tutorials like this: https://goo.gl/6PYaGF\n' +
+              '\n' +
+              '⭐️ Want to learn more from me? Check out these links: \n' +
+              '\n' +
+              'Courses: <a target="_blank" href=" https://codewithmosh.com\n"> https://codewithmosh.com\n</a>' +
+              'Twitter: <a target="_blank" href="https://twitter.com/moshhamedani">https://twitter.com/moshhamedani</a>\n' +
+              'Facebook: <a target="_blank" href="https://www.facebook.com/programmingw...">https://www.facebook.com/programmingw...</a>\n' +
+              'Blog: <a target="_blank" href="http://programmingwithmosh.com ">http://programmingwithmosh.com </a>\n' +
+              '\n' +
+              'JavaScript is one of the most popular programming languages in 2022. A lot of people are learning JavaScript to become front-end and/or back-end developers. '))
+          console.log(JSON.parse(localStorage.getItem('description')))
+      }
+      function first_video2(){
+          const video = ' <iframe width="560" height="315" src="https://www.youtube.com/embed/SBmSRK3feww" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>'
+          localStorage.setItem('video1', JSON.stringify(video));
+          window.location.href='video.html';
+          localStorage.setItem('name', JSON.stringify('JavaScript Full Course (2023) - Beginner to Pro - Part 1'))
+
+      }
+      function first_video3() {
+       const video =  ' <iframe width="560" height="315" src="https://www.youtube.com/embed/PkZNo7MFNFg" title="YouTube video player"frameBorder="0"allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"allowFullScreen></iframe>';
+       localStorage.setItem('video1', JSON.stringify(video));
+       window.location.href='video.html';
+       localStorage.setItem('name', JSON.stringify('Learn JavaScript - Full Course for Beginners'))
+
+
+      }
+      function first_video4() {
+       const video =  ' <iframe width="560" height="315" src="https://www.youtube.com/embed/E3XxeE7NF30" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+       localStorage.setItem('video1', JSON.stringify(video));
+       window.location.href='video.html';
+       localStorage.setItem('name', JSON.stringify('Learn JavaScript With This ONE Project!'))
+
+
+      }
+</script>
+</html>

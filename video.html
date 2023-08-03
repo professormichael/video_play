@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+        .rr{
+            right: 220px;
+            color: black;
+        }
+
+        .a1{
+            left: 200px;
+            position: absolute;
+            text-decoration: none;
+            top: 5px;
+            cursor: pointer;
+            font-size: 20px;font-family: Arial, sans-serif;font-weight: bold ;
+
+
+        }
+        .a2{
+            left: 300px;
+            position: absolute;
+            text-decoration: none;
+            top: 5px;
+            cursor: pointer;
+            font-size: 20px;font-family: Arial, sans-serif;font-weight: bold ;
+
+
+        }
+        .a3{
+            left: 400px;
+            position: absolute;
+            text-decoration: none;
+            top: 5px;
+            cursor: pointer;
+            font-size: 20px;font-family: Arial, sans-serif;font-weight: bold ;
+
+
+        }
+        .a4{
+            left: 500px;
+            position: absolute;
+            text-decoration: none;
+            top: 5px;
+            cursor: pointer;
+            font-size: 20px;font-family: Arial, sans-serif;font-weight: bold ;
+
+
+        }
+        .fa-whatsapp{
+            color: green;
+            position: absolute;
+
+            cursor: pointer;
+
+
+            top: 20px;
+            right: 70px;
+            font-size: 50px;
+
+        }
+
+        .header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            row-gap: 200px;
+        }
+        .material-icons{
+            color: blue;
+            position: absolute;
+            top: 20px;
+            right: 145px;
+            font-size: 50px;
+
+        }
+        i{
+            cursor: pointer;
+        }
+        .rr{
+            right: 250px;
+        }
+
+
+        .vide-class{
+            margin-top: 50px;
+            margin-bottom: 40px;
+        }
+        .p{
+            font-size: 28px;
+            font-weight: 600;
+            font-family: Roboto, Arial, sans-serif;
+        }
+        .p1{
+            font-size: 22px;
+            font-family: Rockwell;
+            font-weight: 400;
+            width: 650px;
+
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <div class="left_header">
+        <img class="second-img" src="hamburger-menu.svg" >
+        <a class="a1" href="Superdev_hOME.html">
+            <p>
+                Home
+            </p>
+        </a>
+        <a class="a2">
+            <p>
+                About
+            </p>
+        </a>
+        <a class="a3">
+            <p>
+                Courses
+            </p>
+        </a >
+        <a class="a4">
+            <p>
+                Contact Us
+            </p>
+        </a>
+
+
+    </div>
+</div>
+<div class="vide-class" id="vide_class">
+
+
+</div>
+    <div class="right_header">
+        <i class="fa fa-whatsapp"></i>
+        <i class="material-icons">facebook</i>
+        <i class="material-icons rr">tiktok</i>
+
+
+    </div>
+
+<p id="pa" class="p"></p>
+<p id="p" class="p1"></p>
+
+<script>
+    let p = document.getElementById('p');
+    let pa = document.getElementById('pa');
+    let vide = document.getElementById('vide_class');
+    let video1 = JSON.parse(localStorage.getItem('video1'));
+    vide.innerHTML = video1;
+    let title1 = JSON.parse(localStorage.getItem('title'));
+    document.title = JSON.parse(localStorage.getItem('name'));
+
+    pa.innerText =  JSON.parse(localStorage.getItem('name'));
+    p.innerHTML =  JSON.parse(localStorage.getItem('description'));
+
+</script>
+</body>
+</html>

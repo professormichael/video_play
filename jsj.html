@@ -1,0 +1,204 @@
+<!Doctype>
+<html>
+<head>
+  <title>TEST</title>
+  <style>
+
+
+    #example-element {
+
+      width: 60px;
+      height: 100px;
+      margin-top: 100px;
+      margin-bottom: 100px;
+      margin-left: 290px;
+      transform-style: preserve-3d ;
+      transition: transform 1.5s;
+      transform: rotate3d(1, 1, 1, 0deg);
+      display: inline-block;
+      /*margin: 250px auto;*/
+      animation-name: sidein;
+      animation-delay: -0.15s;
+      animation-iteration-count: infinite;
+      animation-duration: 20s;
+      z-index: 100;
+
+    }
+@keyframes sidein {
+  from{
+    transform: rotate3d(0, 0, 0, 0deg) rotate(0deg);
+  ;
+  }
+  to{
+    transform: rotate3d(1,1,1,360deg) rotate(360deg);
+  }
+
+
+}
+@keyframes slidein3 {
+  0%{
+    transform: translateX( 0px);
+  }
+  25%{
+    transform: translateX(500px);
+  }
+  75%{
+    transform: translateY(0px);
+
+  }
+  100%{
+    transform: translateY(60px);
+  }
+}
+h1{
+  animation-name:slidein3;
+  animation-iteration-count: 6;
+  display: inline-block;
+  font-size: 29px;
+  font-family: Roboto, Arial, sans-serif;
+  transition: 0.15s;
+  position: absolute;
+  left: 460px;
+  top: 180px;
+}
+
+.face {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(10,10,10,10);
+  width: 100%;
+  height: 100%;
+
+  position: absolute;
+  backface-visibility: inherit;
+  font-size: 60px;
+  color: #fff;
+}
+
+.front {
+  background: rgba(90, 90, 90, 0.7);
+  transform: translateZ(100px);
+}
+
+.back {
+  background: rgba(0, 210, 0, 0.7);
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+  background: rgba(210, 0, 0, 0.7);
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+  background: rgba(0, 0, 210, 0.7);
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+  background: rgba(210, 210, 0, 0.7);
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+  background: rgba(210, 0, 210, 0.7);
+  transform: rotateX(-90deg) translateZ(100px);
+}
+input{
+  display: block;
+  width: 100%;
+  height: 30px;
+  margin-bottom: 10px;
+  background: transparent;
+  font-size: 18px;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 400;
+  outline: none;
+  border-color: whitesmoke;
+  border-width: thin;
+}
+label{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 19px;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: bold;
+}
+form{
+  display: flex;
+
+  background-color: lightgray;
+  padding-left: 50px;
+  flex-direction: column;
+  width: 400px;
+  margin-left: 35%;
+  margin-bottom: 50px;
+  border: lightgray;
+  border-width: 3px;
+  border-style:solid;
+}
+button{
+  width: 100%;
+  height: 50px;
+  background-color: #00133c;
+  border: none;
+  font-size: 19px;
+  font-family: Roboto, Arial, sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+}
+button:focus{
+  background-color: red;
+}
+
+  </style>
+</head>
+<body id="body1">
+<section id="example-element" tabindex="0">
+  <div class="face front">1</div>
+  <div class="face back">2</div>
+  <div class="face right">3</div>
+  <div class="face left">4</div>
+  <div class="face top">5</div>
+  <div class="face bottom">6</div>
+  <div class="face bottom">6</div>
+  <div class="face bottom">6</div>
+</section>
+<h1>
+  Welcome To The Superdev Forum
+</h1>
+<br/>
+
+<form >
+<h2>
+  Sign Up
+</h2>
+  <label>
+    Username
+  <input type="text" placeholder="Enter Your Username" id="username"/>
+  </label>
+  <label>
+    Email-Address
+  <input type="email" placeholder="Enter Your Email-Address" id="email"/>
+  </label>
+  <label>
+    Password
+  <input type="password" placeholder="Enter Your Password" id="password"/>
+  </label>
+  <label>
+    Confirm-Password
+  <input type="password" placeholder="Confirm Your Password" id="confirm-password">
+  </label>
+  <button onclick="onclick1()" type="button"  >
+    Sign Up
+  </button>
+</form>
+<p style="margin-left: 550px">
+   &#169;. copyright @ Super Dev Forum
+</p>
+<script src="hhe.js">
+
+</script>
+</body>
+</html>
