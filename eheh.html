@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+if (Notification.permission !== 'granted') {
+  Notification.requestPermission().then(permission => {
+    if (permission === 'granted') {
+      // Permission has been granted, you can now send notifications
+    }
+  });
+}
+
+ if (Notification.permission === 'granted') {
+  const notificationOptions = {
+    title: 'Notification Title',
+    body: 'Click to visit our website!',
+    icon: 'path_to_icon.png',
+    data: {
+      url: 'http://localhost:63342/untitled/web/Superdev_hOME.html?_ijt=6ege3g1vqeml2j3vokgqnm2nmr&_ij_reload=RELOAD_ON_SAVE' // Add the URL here
+    }
+  };
+
+  const notification = new Notification(notificationOptions.title, notificationOptions);
+
+  notification.onclick = event => {
+    if (notification.data && notification.data.url) {
+      // Open the URL when the notification is clicked
+      window.open(notification.data.url, '_blank');
+    }
+    window.focus();
+    notification.close();
+  };
+}
+
+
+</script>
+</body>
+</html>

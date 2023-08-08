@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Password Hashing Example</title>
+</head>
+<body>
+  <h1>Password Hashing Example</h1>
+  <form id="signup-form">
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+    <button type="submit">Sign Up</button>
+  </form>
+  <p id="hashed-password"></p>
+
+  <script>
+    // Function to generate a salted hash of a password
+    async function generateSaltedHash(password, salt) {
+      const encoder = new TextEncoder();
+      const data = encoder.encode(password);
+      const importedKey = await crypto.subtle.importKey(
+        'raw',
+        data,
+        'PBKDF2',
+        false,
+        ['deriveBits', 'deriveKey']
+      );
+
+      const saltBuffer = encoder.encode(salt);
+      const hashBuffer = await crypto.subtle.deriveBits(
+        {
+          name: 'PBKDF2',
+          salt: saltBuffer,
+          iterations: 10000,
+          hash: 'SHA-512'
+        },
+        importedKey,
+        256
+      );
+
+      return new Uint8Array(hashBuffer).toString('hex');
+    }
+
+    // Function to generate a random salt
+    function generateSalt() {
+      const randomBytes = new Uint8Array(16);
+      crypto.getRandomValues(randomBytes);
+      return Array.from(randomBytes, byte => ('0' + (byte & 0xFF).toString(16)).slice(-2)).join('');
+    }
+
+    document.getElementById('signup-form').addEventListener('submit', async function(event) {
+      event.preventDefault();
+
+      const password = document.getElementById('password').value;
+      const salt = generateSalt();
+      const hashedPassword = await generateSaltedHash(password, salt);
+
+      document.getElementById('hashed-password').textContent = `Hashed Password: ${hashedPassword}`;
+    });
+  </script>
+</body>
+</html>

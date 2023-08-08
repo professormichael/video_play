@@ -1,0 +1,303 @@
+/* General Styling */
+
+.icon-bar {
+  width: 90px;
+  background-color: #555;
+}
+
+.icon-bar a {
+  display: block;
+  text-align: center;
+  padding: 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 30px;
+  position: absolute;
+  left: 10%;
+}
+
+.icon-bar a:hover {
+  color: #00133c;
+}
+
+.active {
+  background-color: initial;
+}
+
+/* 3D Element Styling */
+
+#example-element {
+  width: 60px;
+  height: 100px;
+  margin: 100px 0;
+  margin-left: 290px;
+  transform-style: preserve-3d;
+  transition: transform 1.5s;
+  transform: rotate3d(1, 1, 1, 0deg);
+  display: inline-block;
+  animation-name: sidein;
+  animation-delay: -0.15s;
+  animation-iteration-count: infinite;
+  animation-duration: 20s;
+  position: absolute;
+  left: 0;
+  top: 70px;
+  z-index: 100;
+}
+
+@keyframes sidein {
+  from {
+    transform: rotate3d(0, 0, 0, 0deg) rotate(0deg);
+  }
+  to {
+    transform: rotate3d(1, 1, 1, 360deg) rotate(360deg);
+  }
+}
+
+/* 3D Faces Styling */
+
+.face {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(10, 10, 10, 0.5);
+  width: 100%;
+  height: 100%;
+  backface-visibility: inherit;
+  font-size: 60px;
+  color: #fff;
+}
+
+.front, .back, .right, .left, .top, .bottom {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform: translateZ(100px);
+}
+
+.back {
+  background: rgba(0, 210, 0, 0.7);
+  transform: rotateY(180deg) translateZ(100px);
+}
+
+.right {
+  background: rgba(210, 0, 0, 0.7);
+  transform: rotateY(90deg) translateZ(100px);
+}
+
+.left {
+  background: rgba(0, 0, 210, 0.7);
+  transform: rotateY(-90deg) translateZ(100px);
+}
+
+.top {
+  background: rgba(210, 210, 0, 0.7);
+  transform: rotateX(90deg) translateZ(100px);
+}
+
+.bottom {
+  background: rgba(210, 0, 210, 0.7);
+  transform: rotateX(-90deg) translateZ(100px);
+}
+
+/* Header Styling */
+#button1{
+  position: absolute;
+  top: 5px;
+  right: 120px;
+  border: none;
+  background-color: initial;
+}
+#button2{
+  position: absolute;
+  top: 5px;
+  right: 0;
+  border:none;
+  background-color: initial;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: center;
+}
+
+.material-icons, .fa-whatsapp, .rr {
+  color: blue;
+  position: absolute;
+  display: flex;
+  flex-shrink: 0;
+  top: 5px;
+  right: 30px;
+  font-size: 50px;
+}
+
+.fa-whatsapp {
+  color: green;
+  right: 160px;
+  font-size: 50px;
+}
+
+.material-icons {
+  right: 195px;
+}
+
+.rr {
+  right: 270px;
+  color: black;
+}
+
+/* Search Bar Styling */
+
+.middle-class {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  border-radius: 10px;
+  border: thin solid;
+  width: 400px;
+  max-width: 900px;
+  top: 5px;
+  left: 25%;
+  margin-bottom: 50px;
+  height: 40px;
+  position: absolute;
+}
+
+.search_input {
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  display: flex;
+  width: 350px;
+  height: 100%;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.search {
+  right: 0;
+  position: absolute;
+  margin-top: 5px;
+  width: 50px;
+  font-size: 28px;
+  font-weight: lighter;
+  display: flex;
+  flex-shrink: 1;
+}
+
+.search-div {
+  right: 10px;
+  width: 50px;
+  position: absolute;
+  display: flex;
+  flex-shrink: 1;
+}
+
+/* Grid Styling */
+
+.class1, .class2, .class3, .class4 {
+  margin-top: 50px;
+  width: 620px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  row-gap: 20px;
+}
+
+.search-result {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+/* Miscellaneous Styling */
+
+.first-div {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+  position: relative;
+  height: 600px;
+}
+
+.first-img {
+  width: 100%;
+  height: 100%;
+  right: 0;
+  position: relative;
+}
+
+h1 {
+  position: absolute;
+  left: 1%;
+  bottom: 30%;
+  margin-right: 50px;
+}
+
+.second-img {
+  width: 50px;
+  height: 40px;
+  position: absolute;
+  top: 8px;
+  left: 2%;
+  cursor: pointer;
+}
+
+a {
+  position: absolute;
+  display: flex;
+  flex-shrink: 0;
+  text-decoration: none;
+  top: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+}
+
+.a1 {
+  margin-top: 0;
+  padding-top: 0;
+  left: 85px;
+}
+
+.a3 {
+  left: 245px;
+  color: white;
+  margin-top: 5px;
+  font-size: 30px;
+}
+
+.video_title {
+  margin-top: 0;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: Arial, sans-serif;
+}
+
+button {
+  height: 50px;
+  width: 100px;
+  font-weight: bold;
+  font-size: 24px;
+  cursor: pointer;
+  border: solid;
+}
+
+.new-body {
+  margin-top: 50px;
+}
+
+.img2 {
+  width: 300px;
+}
+
+h2 {
+  margin-top: 150px;
+}

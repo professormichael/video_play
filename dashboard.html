@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image File Picker</title>
+  <style>body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.div-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
+}
+
+.div-container h1 {
+  margin: 0;
+  text-align: center;
+}
+
+.div-container h2 {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.div-container form {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.div-container form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.div-container form input[type="text"],
+.div-container form input[type="email"],
+.div-container form input[type="password"],
+.div-container form input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.div-container form input[type="file"] {
+  display: none;
+}
+
+.div-container form input:focus {
+  border-color: #007bff;
+}
+
+.div-container .profile-picture {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.div-container .profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.div-container .profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.div-container .submit-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.div-container .submit-button:hover {
+  background-color: #0056b3;
+}
+button {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+  background-color: #0056b3;
+  color: #fff;
+}
+
+  </style>
+</head>
+<body>
+<div>
+  <h1>Dashboard</h1>
+  <h2>
+    Complete Your Account To Continue
+  </h2>
+</div>
+<div class="div-container">
+  <form>
+  <p>Select Your Profile Picture</p>
+  <div class="first-div">
+    <input class="top_input" type="file" id="imageInput" accept="image/*">
+    <img id="selectedImage"  style=" display: none;">
+  </div>
+  <div id="second-div">
+  </div>
+  <p id="imageUrl" style="display: none;"></p>
+  <a id="downloadLink" style="display: none;"></a>
+    <label>
+      Username
+    <input id="first-input" class="first-input" name="Name" type="text">
+    </label>
+    <label>
+      Email
+    <input id="first-input1" class="first-input" name="email" type="email">
+    </label>
+    <label>
+      Password
+    <input id="first-input2" class="first-input" name="password" type="password">
+    </label>
+    <label>
+      Retry_Password
+    <input id="first-input3" class="first-input" name="retry-password" type="password">
+    </label>
+    <label>
+      About You
+    <input id="first-input4" class="first-input" name="about-you" type="text">
+    </label>
+    <label>
+      How Do You Hear About Us
+    <input id="first-input5" class="first-input" name="occupation" type="text" style="margin-bottom: 0">
+    </label>
+    <button class="button" onclick="click1()" type="button">
+      Submit
+    </button>
+
+  </form>
+</div>
+
+<script>
+  console.log("jje");
+
+console.log("hello");
+
+  function downloadImage(url, filename) {
+  const link = document.getElementById('downloadLink');
+  link.href = url;
+  link.download = filename;
+  link.click();
+}
+
+
+const imageInput = document.getElementById('imageInput');
+const selectedImage = document.getElementById('selectedImage');
+const imageUrlDisplay = document.getElementById('imageUrl');
+const second_div = document.getElementById('second-div')
+
+imageInput.addEventListener('change', (event) => {
+  const selectedFile = event.target.files[0];
+  if (selectedFile) {
+    const imageUrl = URL.createObjectURL(selectedFile);
+    imageUrlDisplay.textContent = `Image URL: ${imageUrl}`;
+    imageUrlDisplay.style.display = 'block';
+    localStorage.setItem('profile-picture', JSON.stringify(imageUrl))
+    ima
+    selectedImage.style.display = 'block';
+    const imageUrl1 = imageUrl;
+    const desiredFilename = 'my-image.jpg';
+    imageInput.remove()
+    selectedImage.src = imageUrl
+   //document.querySelector('input').type = "file"
+  }
+
+
+
+});
+
+let first_input=document.getElementById('first-input');
+  let first_input1=document.getElementById('first-input1');
+  let first_input2=document.getElementById('first-input2');
+  let first_input3=document.getElementById('first-input3');
+  let first_input4=document.getElementById('first-input4');
+  let first_input5=document.getElementById('first-input5');
+
+function click1(){
+localStorage.setItem('about',JSON.stringify(first_input4));
+localStorage.setItem('occupation',JSON.stringify(first_input5));
+
+
+}
+ window.onload = function(){
+  if (true) {
+    if (JSON.parse(localStorage.getItem('username')) === "") {
+      alert('Create Your Account, Cant Access Dashboard ');
+      window.location.href = "jsj.html";
+    } else if (JSON.parse(localStorage.getItem('username')) === null) {
+      alert('Create Your Account, Cant Access Dashboard ');
+      window.location.href = "jsj.html";
+    } else {
+      first_input.value = JSON.parse(localStorage.getItem('username'));
+      first_input.disabled = true;
+    }
+    if (JSON.parse(localStorage.getItem('email')) === "") {
+      console.log("");
+
+    } else if (JSON.parse(localStorage.getItem('email')) === null) {
+      console.log("");
+
+    } else {
+      first_input1.value = JSON.parse(localStorage.getItem('email'));
+      first_input1.disabled = true;
+    }
+    if (JSON.parse(localStorage.getItem('password')) === "") {
+      console.log("");
+
+    } else if (JSON.parse(localStorage.getItem('password')) === null) {
+      console.log("");
+
+    } else {
+      first_input2.value = JSON.parse(localStorage.getItem('password'));
+      first_input2.disabled = true;
+    }
+    if (JSON.parse(localStorage.getItem('confirm_password')) === "") {
+      console.log("");
+
+    } else if (JSON.parse(localStorage.getItem('confirm_password')) === null) {
+      console.log("");
+
+    } else {
+      first_input3.value = JSON.parse(localStorage.getItem('confirm_password'));
+      first_input3.disabled = true;
+    }
+    if (JSON.parse(localStorage.getItem('about')) !="" ) {
+      const form = document.querySelector('form')
+      console.log(JSON.parse(localStorage.getItem('about')))
+
+    }
+    else{
+
+    }
+    if (JSON.parse(localStorage.getItem('occupation')) ) {
+      const form = document.querySelector('form')
+
+    }
+  }
+
+}
+
+</script>
+
+</body>
+</html>

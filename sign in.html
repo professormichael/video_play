@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Superdev Forum - Sign Up</title>
+  <title>Superdev Forum - Sign In</title>
   <style>
     * {
       margin: 0;
@@ -172,39 +172,78 @@
 <h1>Welcome To The Superdev Forum</h1>
 
 <div class="form-container">
-  <h2>Sign Up</h2>
+  <h2>Sign In</h2>
   <form>
     <div class="input-container">
-      <label for="username">Username</label>
-      <input type="text" id="username" placeholder="Enter Your Username">
-      <p id="errorMessage" style="color: red;
-margin-top: 3px"></p>
+      <label for="usernamea">Username</label>
+      <input type="text" id="usernamea" placeholder="Enter Your Username">
     </div>
     <div class="input-container">
-      <label for="email">Email Address</label>
-      <input type="email" id="email" placeholder="Enter Your Email Address">
-      <p id="errorMessagea" style="color: red;
-margin-top: 3px"></p>
-
+      <label for="passwordb">Password</label>
+      <input type="password" id="passwordb" placeholder="Enter Your Password">
     </div>
-    <div class="input-container">
-      <label for="password">Password</label>
-      <input type="password" id="password" placeholder="Enter Your Password">
-      <p id="errorMessageb" style="color: red;
-margin-top: 3px"></p>
-    </div>
-    <div class="input-container">
-      <label for="confirm-password">Confirm Password</label>
-      <input type="password" id="confirm-password" placeholder="Confirm Your Password">
-      <p id="errorMessagec" style="color: red;
-margin-top: 3px"></p>
-    </div>
-    <button class="submit-btn" onclick="onclick1()" type="button">Sign Up</button>
+    <button class="submit-btn" onclick="onclick1()" type="button">Sign In</button>
   </form>
 </div>
 
 <p class="copy">&#169; Copyright Super Dev Forum</p>
 
-<script src="hhe.js"></script>
+<script>
+
+
+function getCookie(name) {
+    const cookies = document.cookie.split(';');
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
+        if (cookie.startsWith(name + '=')) {
+            return decodeURIComponent(cookie.substring(name.length + 1));
+        }
+    }
+    return null;
+}
+window.onload = function (){
+  let username = document.getElementById('usernamea').value;
+   if (username === ""){
+    document.getElementById('usernamea').disabled= true
+    document.getElementById('usernamea').value = "Enter Your Username"
+    document.getElementById('usernamea').disabled= false
+
+  }
+}
+function onclick1() {
+  let username = document.getElementById('usernamea').value;
+  let password = document.getElementById('passwordb').value;
+  let key2 = "";
+  if (username === ""){
+    document.getElementById('usernamea').disabled= true
+    document.getElementById('usernamea').value = "Enter Your Username"
+    document.getElementById('usernamea').disabled= false
+
+  }
+  if (username === ""){
+    document.getElementById('usernamea').value = "Enter Your Username"
+  }
+
+  let verify = localStorage.getItem('usernames') || [];
+  if(verify.includes(username) && verify.includes(password)){
+    key2 = 'sign in complete';
+    localStorage.setItem('key2', JSON.stringify(key2))
+
+  }
+  if(JSON.parse(localStorage.getItem('key2'))==='sign in complete'){
+    alert("You Successfully Logged In ")
+    window.location.href = 'Superdev_hOME.html'
+  }
+
+
+
+  else{
+    alert("Wrong Logged In Information")
+  }
+
+  console.log(localStorage.getItem('usernames'))
+}
+
+</script>
 </body>
 </html>
