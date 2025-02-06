@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title id="title"></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SuperDev Forum gives you the best free teachings in learning how to code in alomst all programming languages JavasScript, Python, Java Join Us To Begin">
+    <meta name="keywords" content="SuperDev, SuperDev Forum, JavaScript Free Website, Learn JavaScript Freely, Free Course On JavaScript, Learn For Free, JavaScript, Python , Learn How To Code">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -10,102 +14,153 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" type="text/css" href="home.css">
+    
+    
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-
+    <style>
+        footer{
+            background-color: rgb(27, 27, 27);
+        }
+        .ul{
+            display: grid;
+            grid-template-columns:  1fr 1fr 1fr;
+            grid-row-gap: 40px;
+            place-content: center;
+            color: white;
+        }
+        li a{
+            font-size: 14px;
+            color:white;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            word-wrap: break-word;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
 
-<div class="first-div">
-    <img src="JS.png" class="first-img">
-    <section id="example-element" tabindex="0">
-        <div class="face front">JS</div>
-        <div class="face back">JS</div>
-        <div class="face right">JS</div>
-        <div class="face left">JS</div>
-        <div class="face top">JS</div>
-        <div class="face bottom">JS</div>
-        <div class="face bottom">JS</div>
-        <div class="face bottom">JS</div>
-</section>
-    <h1>Welcome To SuperDev Forum </h1>
-</div>
-<div class="header">
-    <div class="left_header">
-        <img class="second-img" src="hamburger-menu.svg" >
-        <a class="a1">
-            <p>
-            <div class="icon-bar">
-            <a class="active a1"  href="Superdev_hOME.html"><i  class="fa fa-home"></i></a>
+
+    <div class="header">
+        <div class="left_header" id="left_h">
+            
+            <a class="active a1 a"  href="Superdev_hOME.html">Home</a>
+            
+            <a class="a1 a" href="web/course.html">
+              Courses
+            </a>
+    
         </div>
-            </p>
-        </a>
-
-        <a class="a3" href="course.html">
-          <i class="fas fa-book-open"></i>
-        </a>
-
+        <div class="middle-class">
+            <input class="search_input" id="search_input">
+            <div class="search-div">
+            <i class="glyphicon glyphicon-search search" onclick="search() "></i>
+             </div>
+        </div>
+        <div class="right_header" id="right">
+            <button id="button1" style="width:100px; height:40px; font-size:15px; border:thin #e0d817 solid; cursor: pointer; border-radius:2px; ">Sign Up</button>
+            <button id="button2" style="width:100px; height:40px; font-size:15px; border:thin #e0d817 solid; cursor: pointer; border-radius:2px; ">Sign In</button>
+            <button id="button3"> Logout</button>
+    
+    
+        </div>
     </div>
-    <div class="middle-class">
-        <input class="search_input" id="search_input">
-        <div class="search-div">
-        <i class="glyphicon glyphicon-search search" onclick="search() "></i>
-         </div>
-    </div>
-    <div class="right_header">
-        <i class="fa fa-whatsapp"></i>
-        <i class="material-icons">facebook</i>
-        <i class="material-icons rr">tiktok</i>
-        <button id="button1"></button>
-        <button id="button2"></button>
-        <button id="button3"> Logout</button>
-
-
+    <div class="first-div">        
+        <h1>Welcome To SuperDev Forum </h1>
     </div>
 </div>
-
-
+<div class="main" id="main">
+                
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+        <p>To Teach You In The Best Way On How To Become A Pro JavaScript Developer. Not Only JavaScript, We Venture Into The Teaching Of Almost All Programming Languages</p>
+    </section>
+    
+    <section id="how-it-works" class="section">
+        <h2>How It Works</h2>
+        <ol>
+            <li>Register To Become One Of Us.</li>
+            <li>Click On Our Free Courses.</li>
+            <li>Relax and Watch Our Free Course And Pratice Them .</li>
+        </ol>
+</section>
+</div>
 <p id="paragraph" class="paragraph"></p>
 <div class="search-result" id="search-result">
 
 
 </div>
 <h2>Get Our Free Courses </h2>
-<div class="new-body">
-    <div class="class1" id="ex1">
-    <img src="pics1.webp" class="img2">
-    <p class="video_title" id="pz">
-        JavaScript Tutorial for Beginners: Learn JavaScript in 1 Hour
-
-    </p>
-    <button onclick="first_video()">Watch</button>
-    </div>
-    <div class="class2" id="ex2">
-    <img src="hq720.webp" class="img2">
-    <p class="video_title" id="py">
-        JavaScript Full Course (2023) - Beginner to Pro - Part 1
-
-    </p>
-    <button onclick="first_video2()" >Watch</button>
-    </div>
-    <div class="class3" id="ex3">
-    <img src="pics3.webp" class="img2">
-    <p class="video_title" id="px">
-        Learn JavaScript - Full Course for Beginners
-
-    </p>
-    <button onclick="first_video3()">Watch</button>
-    </div>
-    <div class="class4" id="ex4" >
-    <img src="hq720%20(1).webp" class="img2">
-    <p class="video_title" id="pw">
-       Learn JavaScript With This ONE Project!
-
-    </p>
-    <button onclick="first_video4()">Watch</button>
-    </div>
+<div class="new-body" id="new_body">
 
 </div>
+<footer>
+    <ul class="ul">
+        <li>
+        <a href="#">
+            Join Us
+        </a>
+        </li>
+        <li>
+        <a href="#">
+            Home
+        </a>
+        </li>
+        <li>
+        <a href="#services" >
+            Services
+        </a>
+        </li>
+        <li>
+        <a href="#">
+            Blog
+        </a>
+        </li>
+        <li>
+        <a href="#">
+            Free Video
+        </a>
+        </li>
+        <li>
+        <a href="#">
+            Shop
+        </a>
+        </li>
+        <li>
+        <a href="#">
+            Contact Us
+        </a>
+        </li>
+        <li>
+        <a href="#">
+            Affilate
+        </a>
+        </li>
+        <li>
+        <a href="#">
+            Become A Dev Pro
+        </a>
+        </li>
+        <li>
+            <a href="#">
+                Align With Us
+            </a>
+        </li>
+        <li>
+            <a id="upload">
+                Upload Video
+            </a>
+        </li>
+        <li>
+            <a id="myVideos">
+            My Videos 
+            </a>
+        </li>
+        
+    </ul>
+</footer>
 </body>
 <script src="home.js">
 

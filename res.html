@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        li:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>List of Video Files</h1>
+    <ul id="video-list"></ul>
+
+    <script>
+addVideoToMain()
+// Create an XHR object
+        function addVideoToMain(){
+        const xhr = new XMLHttpRequest();
+
+        // Configure the XHR request
+        xhr.open('GET', 'http://localhost:3000/videos', true);
+
+        // Set the onload callback to handle the response
+        xhr.onload = function() {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                // Parse the JSON response
+                const data = JSON.parse(xhr.responseText);
+
+                // Log the video list to the console
+                console.log(data);
+
+                // Get the video list container
+                const videoList = document.getElementById('video-list');
+                videoList.innerHTML = ''; // Clear any existing content
+
+                // Loop through each video and create a list item for it
+                data.forEach(video => {
+                    const li = document.createElement('li');
+                    li.textContent = video.title; // Display video file path (you can customize this)
+                    videoList.appendChild(li);
+                });
+            } else {
+                console.error('Error fetching videos:', xhr.statusText);
+            }
+        };
+
+        // Set the onerror callback in case of network failure
+        xhr.onerror = function() {
+            console.error('Network error occurred');
+        };
+
+        // Send the XHR request
+        xhr.send();
+    }
+        </script>
+
+</body>
+</html>

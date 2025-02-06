@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Video</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <style>
+        .upload-container {
+            text-align: center;
+            margin: 50px auto;
+            width: 50%;
+        }
+        #videoPreview {
+            display: none;
+            width: 100%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+        #progressContainer {
+            display: none;
+            margin-top: 10px;
+        }
+        #progressBar {
+            width: 0%;
+            height: 20px;
+            background-color: #4caf50;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-container">
+        <h2>Upload Your Video</h2>
+        
+        <input type="text" id="title" placeholder="Video Title" class="form-control" style="margin: 10px auto;">
+        <input type="text" id="description" placeholder="Description (optional)" class="form-control" style="margin: 10px auto;">  
+        <input type="file" id="videoUpload" accept="video/*" class="form-control" style="margin: 10px auto;">
+        
+        <button class="btn btn-primary" onclick="uploadVideo()">Upload</button>
+        
+        <video id="videoPreview" controls></video>
+
+        <!-- Progress Bar -->
+        <div id="progressContainer">
+            <div id="progressBar">0%</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('videoUpload').addEventListener('change', function(event) {
+           
+        
+            const file = event.target.files[0];
+            if (file) {
+                const videoPreview = document.getElementById('videoPreview');
+                videoPreview.src = URL.createObjectURL(file);
+                videoPreview.style.display = 'block';
+                sendMetadata()
+            }
+        });
+        alert(JSON.parse(localStorage.getItem('lockKey')))
+        let username = '';
+            if(JSON.parse(localStorage.getItem('lockKey')) === 'true'){
+                //document.getElementById('username').value
+                username = JSON.parse(localStorage.getItem('username'));
+                alert('present')
+            }
+          alert(username)
+        function sendMetadata() {
+            
+            const videoTitle = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+
+            if (!username || !videoTitle) {
+                alert('Please enter a username and video title.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('username1', username);
+            formData.append('title1', videoTitle);
+            formData.append('videodescription1', description);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://like-married-akubra.glitch.me/l', true);
+            xhr.setRequestHeader('Accept', 'application/json');
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        alert('Metadata sent successfully! Now uploading the video...');
+                        uploadVideo(); // Call video upload function after metadata is sent
+                    } else {
+                        alert('Error: ' + response.message);
+                    }
+                } else {
+                    alert('Failed to send metadata.');
+                }
+            };
+
+            xhr.onerror = function() {
+                alert('Error sending metadata.');
+            };
+
+            xhr.send(formData);
+        }
+
+        function uploadVideo() {
+            const fileInput = document.getElementById('videoUpload');
+            if (fileInput.files.length === 0) {
+                alert('Please select a video to upload.');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('video', fileInput.files[0]);
+
+            const xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://like-married-akubra.glitch.me/upload', true);
+
+            // Show progress bar
+            const progressContainer = document.getElementById('progressContainer');
+            const progressBar = document.getElementById('progressBar');
+            progressContainer.style.display = 'block';
+
+            // Track upload progress
+            xhr.upload.onprogress = function(event) {
+                if (event.lengthComputable) {
+                    const percentComplete = Math.round((event.loaded / event.total) * 100);
+                    progressBar.style.width = percentComplete + '%';
+                    progressBar.innerText = percentComplete + '%';
+                }
+            };
+
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    const response = JSON.parse(xhr.responseText);
+                    if (response.success) {
+                        alert('Video uploaded successfully!');
+                        window.location.href = 'request.html'; // Redirect after upload
+                    } else {
+                        alert('Error: ' + response.message);
+                    }
+                } else {
+                    window.location.href = 'request.html'
+                }
+            };
+
+            xhr.onerror = function() {
+                alert('There was an error uploading the video.');
+            };
+
+            xhr.send(formData);
+        }
+    </script>
+</body>
+</html>

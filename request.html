@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Videos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+        }
+        .video-container {
+            margin: 20px auto;
+            width: 50%;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        video {
+            width: 100%;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Request Videos from Your Account</h2>
+    <input id="username" placeholder="Enter your username" />
+    <button id="button">Request Videos</button>
+    
+    <div id="body1"></div>
+
+    <script>
+        document.getElementById('button').addEventListener('click', async function () {
+            const inputUsername = document.getElementById('username').value.trim();
+            const body1 = document.getElementById('body1');
+
+            // Clear previous results
+            body1.innerHTML = '';
+
+            if (!inputUsername) {
+                body1.innerHTML = '<p style="color: red;">Please enter a username.</p>';
+                return;
+            }
+
+            const formData2 = new FormData();
+            formData2.append('username', inputUsername);
+
+            try {
+                const response = await fetch('http://localhost:3000/h', {
+                    method: 'POST',
+                    body: formData2,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                const data = await response.json();
+
+                if (!data[inputUsername] || !data[inputUsername]['titles']) {
+                    body1.innerHTML = '<p>No videos found for this username.</p>';
+                    return;
+                }
+
+                const titles = data[inputUsername]['titles'];
+                console.log(titles)
+                console.log(data[inputUsername].titles)
+                for (let i = 0; i < data[inputUsername].titles.length; i++) {
+                    const titless = data[inputUsername].titles[i]//titles[i][1])
+                    console.log(data[inputUsername][titless][1])
+                    const div = document.createElement('div');
+                    div.className = 'video-container';
+                    //console.log(data[inputUsername][titles][1]);
+                    const h3 = document.createElement('h3');
+                    h3.innerText = titles[i]; // Video Title
+                    
+                    const video = document.createElement('video');
+                    video.src = `http://127.0.0.1:5501/uploads/${inputUsername}/${titles}.mp4` // Video URL from server
+                    console.log(`http://127.0.0.1:5501/iploads/${inputUsername}/${titles}.mp4`)
+                    video.controls = true;
+                    console.log(video.src)
+                  
+                    div.appendChild(h3);
+                    div.appendChild(video);
+                    body1.appendChild(div);
+                }
+            } catch (error) {
+                console.error('Error fetching videos:', error);
+                body1.innerHTML = '<p style="color: red;">Error fetching videos. Please try again.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

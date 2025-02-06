@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In ---- Space X</title>
+    <link href="anime.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div >
+    <h2 class="flex"  style="margin-top: 100px;">
+        Sign In
+    </h2>
+    </div>
+   <div id="div_form" class="flex">
+        <form id="form_signup" >
+            <div id="div_sign">
+            <label for="username" class="label"> Username<br/><br/>
+                <input id="username" class="input" name="username" placeholder="Enter Your Username............" required>
+                <p id="user_check"></p>
+            </label>
+            <label for="password" class="label"> Password<br/><br/>
+                <input id="password" class="input" name="password" placeholder="Enter Your Password........." type="password" required>
+                <p id="password_check"></p>
+            </label>
+            
+            <button id="button" type="button" onclick="clickloa()">
+                Login
+            </button>
+            <a href="anime_signup.html" style="color:gray; letter-spacing: 2px;font-size: 20px; display: inline; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" >Create Free Account</a>
+            </div>
+        </form>
+    </div>
+    <script>
+        const user_check = document.getElementById('user_check');
+        let trys = 5
+        async function clickloa(){
+            console.log('clicked')
+            const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value;
+            
+            const data = { username, password};
+            const formData = new FormData;
+            formData.append('username3', username);
+            formData.append('password3', password)
+            await fetch('https://hypnotic-beneficial-starfish.glitch.me/login', {
+                method: 'POST',
+                body: formData
+             })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.message);
+                if(data.success === true){
+                    trys = 5
+                    user_check.innerText = data.message;
+                    user_check.style.color = 'blue';
+                    window.location.href = 'Superdev_hOME.html'//'http://professormichael.github.io/video_play/Superdev_hOME.html';
+                    localStorage.setItem('logged', JSON.stringify('true'));
+                    localStorage.setItem('username', JSON.stringify(username));
+                    localStorage.setItem('lock', JSON.stringify('true'))
+                    localStorage.removeItem('key')
+                }
+                else{
+                    trys --;
+                    user_check.innerText = ` ${data.message}, You Have ${trys} more trys`;
+                    user_check.style.color = 'red';
+                    if(trys <=0){
+                        window.location.href = 'anime_signup.html'
+                        
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+         /*   await fetch('http://localhost:3000/get_log')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data, data.point)
+                document.getElementById('button').innerHTML = 'Submit';
+                document.getElementById('button').disabled = false
+                if(data.point === true){
+                    user_check.innerText =  'Registered Successful';
+                    user_check.style.color = 'blue';
+
+                }
+                else if(data.point === false){
+                    user_check.innerText =  'Username Already Exists';
+                    user_check.style.color = 'red';
+                }  
+            })*/
+        }  
+    </script>   
+</body>
+</html>

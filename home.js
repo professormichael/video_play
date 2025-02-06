@@ -1,19 +1,5 @@
-
+        
 var leftStyle = getComputedStyle(document.getElementById('left_h'))
-document.getElementById('menu').innerHTML = `<img src='hamburger-menu.svg' class="second-img">`
-document.getElementById('menu').addEventListener('click', function(){
-    
-    if(leftStyle.display === 'none'){
-        document.getElementById('left_h').style.display = 'block';
-        document.getElementById('menu').innerHTML ='<i class="fa fa-times second-img" style="font-size:29px"></i>'
-
-
-    }
-    else{
-        document.getElementById('left_h').style.display = 'none';
-        document.getElementById('menu').innerHTML = `<img src='hamburger-menu.svg' class="second-img">`
-    }
-})
 function setCookie(name, value, expirationDays) {
     const expirationDate = new Date();
     expirationDate.setDate(expirationDate.getDate() + expirationDays);
@@ -183,7 +169,7 @@ function search(){
     const container = document.getElementById("search-result");
 
 
-    
+   
 
     if(p_namez.innerText.includes(searc)){
         const innerDiv = document.createElement("div");
@@ -227,85 +213,156 @@ function search(){
     }
 });
 */
-if(JSON.parse(localStorage.getItem('logged')) === true){
-    document.title = JSON.parse(localStorage.getItem('username'));
+if(JSON.parse(localStorage.getItem('logged')) === 'true'){
+    alert|(' the logged in is true')
+    alert(JSON.parse(localStorage.getItem('logged')));
+    alert(JSON.parse(localStorage.getItem('username')))      
+    document.getElementById('title').innerText = JSON.parse(localStorage.getItem('username'));
+    document.title = JSON.parse(localStorage.getItem('username'))    
+    document.getElementById('button2').style.display = 'none';
+    document.getElementById('button1').style.display = 'none';
+    const login = document.getElementById("button3");
+    login.style.display = 'grid';
+
+}
+else{
+    document.getElementById("button3").style.display = 'none';
+
+}
+
+document.getElementById('upload').addEventListener('click', function(){
+    if(JSON.parse(localStorage.getItem('logged')) ==='true'){
+        alert('The Login Is True For '+ JSON.parse(localStorage.getItem('username')));
+        localStorage.setItem('lockKey',JSON.stringify('true'))
+        window.location.href = 'uploads.html';    
+    }
+    else{
+        alert('Havent Logged In Yet Login First;')
+        window.location.href = 'animae_signin.html';
+    }
+})
+document.getElementById('myVideos').addEventListener('click', function(){
+    if(JSON.parse(localStorage.getItem('logged')) ==='true'){
+        alert('The Login Is True For '+ JSON.parse(localStorage.getItem('username')));
+        localStorage.setItem('requestKey',JSON.stringify('true'))
+        window.location.href = 'request1.html';    
+    }
+    else{
+        alert('Havent Logged In Yet Login First;')
+        window.location.href = 'animae_signin.html';
+    }
+})
+if(JSON.parse(localStorage.getItem('logged')) !== 'true'){
 }
     
-    if (localStorage.getItem('looged')=== 'true') {
-        document.getElementById('button2').innerText = ""
-    }
-
-    if(localStorage.getItem('looged') === 'true'){
-        document.getElementById('button1').innerText = "";
-    }
-
 const myButton5 = document.getElementById("button3");
 myButton5.addEventListener("click", function () {
     myButton5.style.width = "100";
-    localStorage.removeItem('looged')
-    
+    localStorage.removeItem('logged');
+    localStorage.removeItem('username');
+    localStorage.removeItem('lock')
+    localStorage.setItem('key',JSON.stringify('k'))
+    alert(getComputedStyle(document.getElementById('button1')).display)
+    alert('This is  ' + JSON.parse(localStorage.getItem('logged')));
     window.location.href = 'Superdev_hOME.html';
 
 
 });
 
+/*
 
 
-
-    if(localStorage.getItem('key') === null) {
+    if(localStorage.getItem('key') === 'k') {
         console.log("hello")
         const myButton1 = document.getElementById("button1");
-        myButton1_type = getComputedStyle(myButton1);
-        window.onload = function () {
-            if (myButton1_type.width === '270px') {
-                alert("wrong pixel")
-            }
-        }
-        myButton1.innerText = "Click Here To Sign Up";
-        myButton1.style.width = '100px';
-        myButton1.style.height = '40px';
-        myButton1.style.fontSize = '15px'
-        myButton1.style.border= 'thin #e0d817 solid';
-        myButton1.style.cursor = 'pointer'
-        myButton1.style.borderRadius = '2px';
-        myButton1.addEventListener("click", function () {
-            console.log('Button clicked!'); // Log before redirect if needed
-            window.location.href = 'web/jsj.html'
-        });
+     
 
-    }
-    else{
-        document.title = getCookie('title_real')
-    }
-    if(localStorage.getItem('key') === null){
-         const myButton = document.getElementById('button3')
-         myButton.innerText = "";
-         myButton.style.width = '20px';
-         const myButton2 = document.getElementById("button2");
-         myButton2.innerText = "Click Here To Login";
-         myButton2.style.width = '100px';
-         myButton2.style.fontSize = '15px'
-
-         myButton2.style.height = '40px';
-         myButton2.style.right = '0';
-         myButton2.style.border = 'thin #e0d817 solid';
-         myButton2.style.cursor = 'pointer'
-         myButton2.style.borderRadius = '2px';
+    } 
+    
+    if(JSON.parse(localStorage.getItem('key') === 'k')){
+        
+        const myButton2 = document.getElementById("button1");
          document.title = "SuperDev Home";
          myButton2.addEventListener("click", function () {
              console.log('Button clicked!'); // Log before redirect if needed
-             window.location.href = 'web/sign in.html'
+             window.location.href = 'animae_signin.html';
          });
 
     }
     else{
 
     }
+  */  const signUp = document.getElementById("button1");
+
+    signUp.addEventListener("click", function () {
+        console.log('Button clicked!'); // Log before redirect if needed
+        window.location.href = 'anime_signup.html';
+    });
+    const signIn = document.getElementById("button2");
+
+    signIn.addEventListener("click", function () {
+        console.log('Button clicked!'); // Log before redirect if needed
+        window.location.href = 'animae_signin.html';
+    });
 
 
 // console.log(divs.innerHTML)
 const new_body = document.getElementById('new_body');
 let video_list = [['pics1.webp','JavaScript Tutorial for Beginners: Learn JavaScript in 1 Hour','Watch'],["hq720.webp",'JavaScript Full Course (2023) - Beginner to Pro - Part 1', 'Watch'],['pics3.webp','Learn JavaScript - Full Course for Beginners','Watch'],['hq720%20(1).webp','Learn JavaScript With This ONE Project!','Watch']]
+addVideoToMain()
+function addVideoToMain(){
+    const xhr = new XMLHttpRequest();
+
+    // Configure the XHR request
+    xhr.open('GET', 'https://scratch-spangled-parcel.glitch.me/videos', true);
+
+    // Set the onload callback to handle the response
+    xhr.onload = function() {
+        if (xhr.status >= 200 && xhr.status < 300) {
+            // Parse the JSON response
+            const data = JSON.parse(xhr.responseText);
+
+            // Log the video list to the console
+            console.log(data);
+
+            // Get the video list container
+            
+            // Loop through each video and create a list item for it
+            data.forEach(video => {
+                const div = document.createElement('div');
+                const video1 = document.createElement('video');
+                const h3 = document.createElement('h3');
+                const button = document.createElement('button');
+                video1.src = video.src; // Display video file path (you can customize this)
+                video1.controls=true;
+                video1.currentTime = 5;
+                video1.style.width = '300px'
+                button.innerText = 'Watch';
+                
+                h3.innerText ='Title: ' +  video.title;
+                h3.classList.add('video_title')
+                div.appendChild(video1);
+                div.classList.add('class')
+                div.appendChild(h3);
+                
+                div.appendChild(button);
+                
+                new_body.appendChild(div);
+            });
+        } else {
+            console.error('Error fetching videos:', xhr.statusText);
+        }
+    };
+
+    // Set the onerror callback in case of network failure
+    xhr.onerror = function() {
+        console.error('Network error occurred');
+    };
+
+    // Send the XHR request
+    xhr.send();
+}
+
 for(var i = 0; i<video_list.length; i++){
     const div = document.createElement('div')
     div.classList.add(`class${i+1}`)
