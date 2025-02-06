@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up ---- Space X</title>
+    <link href="anime.css" rel="stylesheet" type="text/css">
+    
+</head>
+<body>
+    <div >
+    <h2 class="flex"  style="margin-top: 100px;">
+        Sign Up
+    </h2>
+    </div>
+   <div id="div_form" class="flex">
+        <form id="form_signup" >
+            <div id="div_sign">
+            <label for="username" class="label"> Username<br/><br/>
+                <input id="username" class="input" name="username" placeholder="Choose A Username............" required>
+                <p id="user_check"></p>
+            </label>
+            <label for="password" class="label"> Password<br/><br/>
+                <input id="password" class="input" name="password" placeholder="Choose A Password.........." type="password" onkeyup="check_pass()" required>
+                <p id="password_check"></p>
+            </label>
+            <label for="confirm_password" class="label"> Confirm_Password<br/><br/>
+                <input id="confirm_password" class="input" placeholder="Confirm Your Password........" onkeyup="confirm_password1()" required type="password">
+                <p id="password_confirm"></p>
+            </label>
+            <button id="button" type="button" onclick="clicklo()">
+                Submit
+            </button>
+            <a href="animae_signin.html" style=" letter-spacing: 2px;font-size: 20px; display: inline; font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;" >Login</a>
+            </div>
+        </form>
+    </div>
+    <script src="anime.js"></script>
+</body>
+</html>
